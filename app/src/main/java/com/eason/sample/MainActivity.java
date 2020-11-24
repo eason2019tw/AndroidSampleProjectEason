@@ -2,6 +2,7 @@ package com.eason.sample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 tvResult.setText(etName.getText().toString());
                 tvResult.setTextColor(Color.BLUE);
+                startActivity(new Intent(MainActivity.this, CalcActivity.class));
             }
         });
     }
