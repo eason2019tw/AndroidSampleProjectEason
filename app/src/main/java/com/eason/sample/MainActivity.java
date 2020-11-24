@@ -28,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 tvResult.setText(etName.getText().toString());
                 tvResult.setTextColor(Color.BLUE);
-                startActivity(new Intent(MainActivity.this, CalcActivity.class));
+                Intent intent = new Intent(MainActivity.this, CalcActivity.class);
+                intent.putExtra("title", etName.getText().toString());
+                startActivity(intent);
             }
         });
     }
