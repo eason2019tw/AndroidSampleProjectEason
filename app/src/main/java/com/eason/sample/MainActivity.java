@@ -2,6 +2,7 @@ package com.eason.sample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -25,8 +26,13 @@ public class MainActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvResult.setText(etName.getText().toString());
+                String name = etName.getText().toString();
+                tvResult.setText(name);
                 tvResult.setTextColor(Color.BLUE);
+
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("name", name);
+                startActivity(intent);
             }
         });
     }
