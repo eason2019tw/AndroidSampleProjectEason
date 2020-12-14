@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SignupActivity">
 
     <EditText
         android:id="@+id/etAccount"
@@ -32,29 +32,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etAccount" />
 
-
-    <Button
-        android:id="@+id/btnLogin"
+    <EditText
+        android:id="@+id/etPasswordAgain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="登入"
-        android:onClick="loginClick"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="請再次輸入密碼"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintTop_toBottomOf="@id/etPassword" />
 
-    <TextView
-        android:id="@+id/tvSignup"
+
+    <Button
+        android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="註冊"
-        android:onClick="signupClick"
+        android:onClick="submitClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordAgain" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
