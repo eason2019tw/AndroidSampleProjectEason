@@ -1,5 +1,6 @@
 package com.eason.sample;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -34,11 +35,24 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        Toast.makeText(MainActivity.this, "Hello, " + etAccount.getText().toString(), Toast.LENGTH_SHORT).show();
+
     }
 
     public void signupClick(View view) {
         Intent intent = new Intent(MainActivity.this, SignupActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 0);// 0 可隨意給，只是一個依據
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            Bundle bundle = data.getExtras();
+            String account = bundle.getString("account");
+            String password = bundle.getString("password");
+            etAccount.setText(account);
+            etPassword.setText(password);
+        }
     }
 }

@@ -3,6 +3,7 @@ package com.eason.sample;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -22,7 +23,6 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     public void submitClick(View view) {
-
         if (etAccount.getText().toString().isEmpty()){
             Toast.makeText(SignupActivity.this, "請輸入帳號", Toast.LENGTH_SHORT).show();
             return;
@@ -38,7 +38,12 @@ public class SignupActivity extends AppCompatActivity {
             return;
         }
 
-        setResult(Activity.RESULT_OK);
+        Intent intent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putString("account", etAccount.getText().toString());
+        bundle.putString("password", etPassword.getText().toString());
+        intent.putExtras(bundle);
+        setResult(Activity.RESULT_OK, intent);
         finish();
 
     }
